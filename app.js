@@ -79,3 +79,7 @@ showConfirm(6)
     .then(function (obj) {
         console.log(obj);
     })
+
+
+    var name="khurram";
+    alert(name);
