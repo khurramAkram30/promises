@@ -60,20 +60,42 @@
 var i = 0;
 
 function showConfirm(num) {
-    return new Promise(function (resolve, reject) {
-        var random = Math.floor(Math.random() * 11);
 
-        if(num/random % 2 === 0){
-            console.log("inside promise if",random);
-            var obj={exBlock:"inside if", flagBool:(num/random % 2 === 0)}
-        resolve(obj);
-        }
+
+    
+    
+    return new Promise(function (resolve, reject) {
+        
+        setTimeout(function(){
+            var random = Math.floor(Math.random() * 11);
+
+            console.log(random);
+            console.log(num);
+        if(num > 5){
+            
+            if(num/random % 2 === 0){
+                console.log("inside promise if",random);
+                var obj={exBlock:"inside if", flagBool:(num/random % 2 === 0)}
+                resolve(obj);
+            }
         else{
-        console.log("inside promise else",random);
-        var obj={exBlock:"inside else", flagBool:(num/random % 2 === 0)}
-        reject(obj);
+            console.log("inside promise else",random);
+            var obj={exBlock:"inside else", flagBool:(num/random % 2 === 0)}
+            reject(obj);
+        
         }
+        }
+            else{
+                console.log("inside promise else",random);
+                var obj={exBlock:"inside else", flagBool:(num/random % 2 === 0)}
+                reject(obj);
+            }
+    
+        },1000);
+        
     })
+        
+
 }
 showConfirm(6)
     .then(function (obj) {
@@ -82,6 +104,7 @@ showConfirm(6)
 
         console.error(obj);
     })
+
 
 
    
