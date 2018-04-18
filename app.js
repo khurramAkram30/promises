@@ -71,15 +71,17 @@ function showConfirm(num) {
         else{
         console.log("inside promise else",random);
         var obj={exBlock:"inside else", flagBool:(num/random % 2 === 0)}
-        resolve(obj);
+        reject(obj);
         }
     })
 }
 showConfirm(6)
     .then(function (obj) {
         console.log(obj);
+    }).catch(function (obj){
+
+        console.error(obj);
     })
 
 
-    var name="khurram";
-    alert(name);
+   
